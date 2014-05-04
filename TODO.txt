@@ -1,0 +1,8 @@
+- Add Comments 
+- Handle XML
+- Test coverage 
+- UTF8 doc parsing
+- Replace deprecated
+- Extract and index document metadata
+- Try Jericho for HTML parshing
+- Handle encrypted PDF
