@@ -29,6 +29,7 @@ public class LuceneTextTokenizerTest {
        
         List<String> tokens = textTokenizer.tokenize(text);
         assertEquals(11, tokens.size());
+        //TODO order is not consistent
         assertEquals("{stream=1, merilly=4, your=1, down=1, boat=1, row=3}",
                 callback.getWordCount().toString());
         
