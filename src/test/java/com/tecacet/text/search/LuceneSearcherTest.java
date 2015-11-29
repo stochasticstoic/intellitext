@@ -53,8 +53,8 @@ public class LuceneSearcherTest {
     @Test
     public void testQueryField() throws Exception {
     	File indexDir = new File("index");
-    	LuceneSearcher searcher = new LuceneSearcher();
-        Document[] docs = searcher.search(indexDir, "author:dimitri");
+    	LuceneSearcher searcher = new LuceneSearcher(indexDir);
+        Document[] docs = searcher.search("author:dimitri");
         for (Document doc : docs) {
             System.out.println(doc.get(IndexConstants.PATH_FIELD));
         }
@@ -65,8 +65,8 @@ public class LuceneSearcherTest {
 
         File indexDir = new File("index");
         String q = "exception*";
-		LuceneSearcher searcher = new LuceneSearcher();
-        Document[] docs = searcher.search(indexDir, q);
+		LuceneSearcher searcher = new LuceneSearcher(indexDir);
+        Document[] docs = searcher.search(q);
         //TODO check expected results
         for (Document doc : docs) {
             System.out.println(doc.get(IndexConstants.PATH_FIELD));

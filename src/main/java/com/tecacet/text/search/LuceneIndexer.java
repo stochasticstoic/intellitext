@@ -68,8 +68,6 @@ public class LuceneIndexer {
 
         writer = new IndexWriter(directory, config);
 
-        //new IndexWriter(directory, analyzer, true, IndexWriter.MaxFieldLength.UNLIMITED);
-        //writer.setUseCompoundFile(false);
         indexDirectory(dataDir);
         int numIndexed = writer.maxDoc();
         writer.close();

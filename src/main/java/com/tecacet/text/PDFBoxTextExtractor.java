@@ -8,10 +8,14 @@ import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.util.PDFTextStripper;
 
+/**
+ * Parses PDF using PDFBox
+ * 
+ * @author dimitri
+ *
+ */
 public class PDFBoxTextExtractor implements TextExtractor {
-
-	public static String password = "-password";
-
+    
 	@Override
 	public String getText(InputStream is) throws IOException {
 		COSDocument cosDoc = parseDocument(is);

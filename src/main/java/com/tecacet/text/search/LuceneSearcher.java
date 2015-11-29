@@ -19,9 +19,7 @@ import org.apache.lucene.util.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * This code was originally written for Erik's Lucene intro java.net article
- */
+
 public class LuceneSearcher {
 
     private static final Version LUCENE_VERSION = Version.LUCENE_47;
@@ -32,8 +30,15 @@ public class LuceneSearcher {
     private final Analyzer analyzer = new StandardAnalyzer(LUCENE_VERSION);
 
     private int maxResults = DEFAULT_MAX_RESULTS;
+    
+    private final File indexDirectory;
+    
+    public LuceneSearcher(File indexDirectory) {
+        super();
+        this.indexDirectory = indexDirectory;
+    }
 
-    public TopDocs getTopHits(File indexDirectory, String queryString) throws IOException, ParseException {
+    public TopDocs getTopHits(String queryString) throws IOException, ParseException {
         FSDirectory fsDir = FSDirectory.open(indexDirectory);
         IndexReader reader = DirectoryReader.open(fsDir);
         IndexSearcher is = new IndexSearcher(reader); // read only searher
@@ -54,8 +59,8 @@ public class LuceneSearcher {
         return hits;
     }
 
-    public Document[] search(File indexDir, String queryString) throws IOException, ParseException {
-        Directory fsDir = FSDirectory.open(indexDir);
+    public Document[] search(String queryString) throws IOException, ParseException {
+        Directory fsDir = FSDirectory.open(indexDirectory);
         IndexReader reader = DirectoryReader.open(fsDir);
         IndexSearcher is = new IndexSearcher(reader); // read only searher
         TopDocs hits = search(queryString, is);

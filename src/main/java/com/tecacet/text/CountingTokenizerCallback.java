@@ -1,11 +1,11 @@
 package com.tecacet.text;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CountingTokenizerCallback implements TokenizerCallback {
 
-	 private final Map<String, Integer> wordCount = new HashMap<String, Integer>();
+	 private final Map<String, Integer> wordCount = new TreeMap<String, Integer>();
 	
 	@Override
 	public void addToken(String token) {
