@@ -1,19 +1,15 @@
 package com.tecacet.text.search;
 
-import java.io.File;
-
+import com.tecacet.text.lucene.LuceneVersion;
 import org.apache.lucene.analysis.core.SimpleAnalyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.Explanation;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.Version;
 import org.junit.Test;
+
+import java.io.File;
 
 public class LuceneUtilTest {
 
@@ -23,15 +19,14 @@ public class LuceneUtilTest {
         String queryExpression = "Visitor";
 
         FSDirectory directory = FSDirectory.open(indexDir);
-        QueryParser parser = new QueryParser(Version.LUCENE_47, 
-        		IndexConstants.CONTENTS_FIELD, new SimpleAnalyzer(Version.LUCENE_47));
+        QueryParser parser = new QueryParser(LuceneVersion.LUCENE_VERSION,
+                IndexConstants.CONTENTS_FIELD, new SimpleAnalyzer(LuceneVersion.LUCENE_VERSION));
         Query query = parser.parse(queryExpression);
 
         System.out.println("Query: " + queryExpression);
 
         // the second argument denotes that this is a read-only searcher
-        
-       
+
         IndexReader reader = DirectoryReader.open(directory);
         IndexSearcher searcher = new IndexSearcher(reader);
         TopDocs hits = searcher.search(query, null, 100);
