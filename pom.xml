@@ -6,14 +6,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<java.version>1.7</java.version>
-		<lucene.version>4.7.2</lucene.version>
-		<guava.version>19.0</guava.version>
-		<apache-poi.version>3.9</apache-poi.version>
-		<slf4j.version>1.7.10</slf4j.version>
-		<logback.version>1.0.13</logback.version>
+		<java.version>1.8</java.version>
+		<lucene.version>4.10.4</lucene.version>
+		<guava.version>23.0</guava.version>
+		<apache-poi.version>3.17</apache-poi.version>
+		<digester3.version>3.2</digester3.version>
+		<jtidy.version>r938</jtidy.version>
+		<nekohtml.version>1.9.6.2</nekohtml.version>
+        <pdfbox.version>1.8.16</pdfbox.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<logback.version>1.2.3</logback.version>
 		<junit.version>4.12</junit.version>
-	</properties>
+    </properties>
 
 	<dependencies>
 		
@@ -27,17 +31,17 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-digester3</artifactId>
-			<version>3.2</version>
+			<version>${digester3.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.jtidy</groupId>
 			<artifactId>jtidy</artifactId>
-			<version>r938</version>
+			<version>${jtidy.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>nekohtml</groupId>
 			<artifactId>nekohtml</artifactId>
-			<version>1.9.6.2</version>
+			<version>${nekohtml.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -57,7 +61,7 @@
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
-			<version>1.8.4</version>
+			<version>${pdfbox.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
