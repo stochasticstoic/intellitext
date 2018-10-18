@@ -21,9 +21,7 @@ import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.util.CharsRef;
 import org.apache.lucene.util.Version;
 
-public final class PorterStemStopWordAnalyzer extends Analyzer {
-
-	private static final Version LUCENE_VERSION = Version.LUCENE_47;
+public final class PorterStemStopWordAnalyzer extends Analyzer implements LuceneVersion {
 
 	private final Set<String> stopwords = new HashSet<String>();
 

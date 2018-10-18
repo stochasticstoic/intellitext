@@ -15,10 +15,8 @@ import org.apache.lucene.util.Version;
 import com.tecacet.text.TextTokenizer;
 import com.tecacet.text.TokenizerCallback;
 
-public class LuceneTextTokenizer implements TextTokenizer {
-
-	private static final Version LUCENE_VERSION = Version.LUCENE_47;
-	
+public class LuceneTextTokenizer implements TextTokenizer,LuceneVersion
+{
 	private final Analyzer analyzer;
 	private TokenizerCallback callback = null;
 
