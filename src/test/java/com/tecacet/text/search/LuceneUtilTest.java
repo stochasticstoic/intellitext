@@ -7,10 +7,12 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
 
+@Ignore
 public class LuceneUtilTest {
 
     @Test
