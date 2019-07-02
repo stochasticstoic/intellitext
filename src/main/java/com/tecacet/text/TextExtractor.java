@@ -5,11 +5,10 @@ import java.io.InputStream;
 
 /**
  * Converts an Input Stream to text
- * 
- * @author dimitri
  *
+ * @author dimitri
  */
 public interface TextExtractor {
 
-	String getText(InputStream is) throws IOException;
+    String getText(InputStream is) throws IOException;
 }

@@ -4,8 +4,8 @@ import com.tecacet.text.PoiMSTextExtractor;
 
 public class MicrosoftTextHandler extends BaseDocumentHandler {
 
-	public MicrosoftTextHandler() {
-		super(new PoiMSTextExtractor());
-	}
+    public MicrosoftTextHandler() {
+        super(new PoiMSTextExtractor());
+    }
 
 }

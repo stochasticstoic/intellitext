@@ -1,17 +1,14 @@
 package com.tecacet.text.search;
 
-import static org.junit.Assert.assertTrue;
+import com.google.common.io.Resources;
+import com.tecacet.util.io.ExtensionFileFilter;
+
+import org.junit.Test;
 
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Date;
 import java.util.Properties;
-
-import org.junit.Test;
-
-import com.google.common.io.Resources;
-import com.tecacet.util.io.ExtensionFileFilter;
 
 public class LuceneIndexerTest {
 

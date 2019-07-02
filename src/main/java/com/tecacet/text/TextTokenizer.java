@@ -7,10 +7,10 @@ public interface TextTokenizer {
 
     /**
      * Break a piece of text into tokens
-     * 
+     *
      * @param text
      * @return
-     * @throws IOException 
+     * @throws IOException
      */
     List<String> tokenize(String text) throws IOException;
 

@@ -4,8 +4,8 @@ import com.tecacet.text.JavaBuiltInRTFTextExtractor;
 
 public class RTFDocumentHandler extends BaseDocumentHandler {
 
-	public RTFDocumentHandler() {
-		super(new JavaBuiltInRTFTextExtractor());
-	}
+    public RTFDocumentHandler() {
+        super(new JavaBuiltInRTFTextExtractor());
+    }
 
 }

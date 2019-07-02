@@ -1,8 +1,8 @@
 package com.tecacet.text.search;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
+import com.tecacet.util.io.DirectoryTraverser;
+import com.tecacet.util.io.ExtensionFileFilter;
+import com.tecacet.util.io.FileVisitor;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -15,9 +15,9 @@ import org.apache.lucene.util.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tecacet.util.io.DirectoryTraverser;
-import com.tecacet.util.io.ExtensionFileFilter;
-import com.tecacet.util.io.FileVisitor;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
 
 /**
  * A Lucene File Indexer
@@ -26,7 +26,7 @@ public class LuceneIndexer {
 
     private static final Version LUCENE_VERSION = Version.LUCENE_47;
 
-	private Logger log = LoggerFactory.getLogger(this.getClass());
+    private Logger log = LoggerFactory.getLogger(this.getClass());
 
     private final DocumentFactory documentFactory;
 
@@ -35,23 +35,18 @@ public class LuceneIndexer {
     private final Analyzer analyzer;
 
     private final FileFilter filter;
-    
-    private final FileVisitor visitor = new FileVisitor() {
-        @Override
-        public void visit(File f) throws IOException {
-            try {
-                indexFile(f);
-            } catch (DocumentHandlerException e) {
-                throw new IOException(e);
-            }
+
+    private final FileVisitor visitor = f -> {
+        try {
+            indexFile(f);
+        } catch (DocumentHandlerException e) {
+            throw new IOException(e);
         }
     };
 
     public LuceneIndexer(File parentDir) throws IOException, DocumentHandlerException {
-        this(parentDir, new ExtensionDocumentFactory("document.factory.properties"),
-                new ExtensionFileFilter(new String[] { "txt", "pdf" }));
+        this(parentDir, new ExtensionDocumentFactory("document.factory.properties"), new ExtensionFileFilter("txt", "pdf"));
     }
-   
 
     public LuceneIndexer(File parentDir, DocumentFactory documentFactory, FileFilter filter) throws IOException {
         this.directory = FSDirectory.open(parentDir);
@@ -74,7 +69,7 @@ public class LuceneIndexer {
         return numIndexed;
     }
 
-    private void indexDirectory(File dataDir) throws IOException, DocumentHandlerException {
+    private void indexDirectory(File dataDir) throws IOException {
         DirectoryTraverser traverser = new DirectoryTraverser(filter);
         traverser.traverse(visitor, dataDir);
     }

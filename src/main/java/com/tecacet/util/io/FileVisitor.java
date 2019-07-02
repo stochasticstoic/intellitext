@@ -5,7 +5,6 @@ import java.io.IOException;
 
 /**
  * Visitor for a DirectoryTraverser
- * 
  */
 public interface FileVisitor {
 

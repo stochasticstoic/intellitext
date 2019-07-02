@@ -2,11 +2,11 @@ package com.tecacet.util.io;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import org.junit.Test;
 
 public class DirectoryTraverserTest {
 
@@ -15,13 +15,9 @@ public class DirectoryTraverserTest {
         DirectoryTraverser traverser = new DirectoryTraverser();
         File dir = new File("testfiles");
         final AtomicInteger count = new AtomicInteger();
-        traverser.traverse(new FileVisitor() {
-
-            @Override
-            public void visit(File f) throws IOException {
-                System.out.println("Visiting " + f.getCanonicalPath());
-                count.incrementAndGet();
-            }
+        traverser.traverse(f -> {
+            System.out.println("Visiting " + f.getCanonicalPath());
+            count.incrementAndGet();
         }, dir);
         assertEquals(9, count.get());
     }

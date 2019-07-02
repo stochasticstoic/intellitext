@@ -1,18 +1,18 @@
 package com.tecacet.text.search;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Date;
-import java.util.Properties;
+import com.google.common.io.Resources;
+import com.tecacet.util.io.ExtensionFileFilter;
 
 import org.apache.lucene.document.Document;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.io.Resources;
-import com.tecacet.util.io.ExtensionFileFilter;
+import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Date;
+import java.util.Properties;
 
 public class LuceneSearcherTest {
 
@@ -44,7 +44,7 @@ public class LuceneSearcherTest {
 
     @After
     public void cleanUp() {
-    	//TODO does not work. Cannot delete a dir with files
+        //TODO does not work. Cannot delete a dir with files
         if (indexDir.exists()) {
             indexDir.delete();
         }
@@ -52,20 +52,20 @@ public class LuceneSearcherTest {
 
     @Test
     public void testQueryField() throws Exception {
-    	File indexDir = new File("index");
-    	LuceneSearcher searcher = new LuceneSearcher(indexDir);
+        File indexDir = new File("index");
+        LuceneSearcher searcher = new LuceneSearcher(indexDir);
         Document[] docs = searcher.search("author:dimitri");
         for (Document doc : docs) {
             System.out.println(doc.get(IndexConstants.PATH_FIELD));
         }
     }
-    
+
     @Test
     public void testSearch() throws Exception {
 
         File indexDir = new File("index");
         String q = "exception*";
-		LuceneSearcher searcher = new LuceneSearcher(indexDir);
+        LuceneSearcher searcher = new LuceneSearcher(indexDir);
         Document[] docs = searcher.search(q);
         //TODO check expected results
         for (Document doc : docs) {

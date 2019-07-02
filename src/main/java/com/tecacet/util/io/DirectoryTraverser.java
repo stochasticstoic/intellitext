@@ -13,17 +13,15 @@ public class DirectoryTraverser {
 
     /**
      * Initialize a directory traverser without a filter.
-     * 
      */
     public DirectoryTraverser() {
-        
+
     }
-    
+
     /**
      * Initialize a directory traverser with a filter
-     * 
-     * @param filter
-     *            only files that pass the filter will be visited
+     *
+     * @param filter only files that pass the filter will be visited
      */
     public DirectoryTraverser(FileFilter filter) {
         super();
@@ -35,12 +33,12 @@ public class DirectoryTraverser {
         for (int i = 0; i < files.length; i++) {
             File f = files[i];
             if (f.isDirectory()) {
-                traverse(visitor, f); 
+                traverse(visitor, f);
             } else {
                 visitor.visit(f);
             }
         }
-        
-        
+
+
     }
 }

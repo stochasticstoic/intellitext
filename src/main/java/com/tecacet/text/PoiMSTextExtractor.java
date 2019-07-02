@@ -1,16 +1,15 @@
 package com.tecacet.text;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.apache.poi.POITextExtractor;
 import org.apache.poi.extractor.ExtractorFactory;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 /**
  * Parses all MS formats using POI
- * 
+ *
  * @author dimitri
- * 
  */
 public class PoiMSTextExtractor implements TextExtractor {
 

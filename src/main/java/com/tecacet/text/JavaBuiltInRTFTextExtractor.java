@@ -9,16 +9,16 @@ import javax.swing.text.rtf.RTFEditorKit;
 
 public class JavaBuiltInRTFTextExtractor implements TextExtractor {
 
-	@Override
-	public String getText(InputStream is) throws IOException {
+    @Override
+    public String getText(InputStream is) throws IOException {
 
-		DefaultStyledDocument styledDoc = new DefaultStyledDocument();
-		try {
-			new RTFEditorKit().read(is, styledDoc, 0);
-			return styledDoc.getText(0, styledDoc.getLength());
-		} catch (BadLocationException e) {
-			throw new IOException(e);
-		}
-	}
+        DefaultStyledDocument styledDoc = new DefaultStyledDocument();
+        try {
+            new RTFEditorKit().read(is, styledDoc, 0);
+            return styledDoc.getText(0, styledDoc.getLength());
+        } catch (BadLocationException e) {
+            throw new IOException(e);
+        }
+    }
 
 }

@@ -1,11 +1,16 @@
 package com.tecacet.text.search;
 
 import com.tecacet.text.lucene.LuceneVersion;
+
 import org.apache.lucene.analysis.core.SimpleAnalyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.*;
+import org.apache.lucene.search.Explanation;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.FSDirectory;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -21,8 +26,7 @@ public class LuceneUtilTest {
         String queryExpression = "Visitor";
 
         FSDirectory directory = FSDirectory.open(indexDir);
-        QueryParser parser = new QueryParser(LuceneVersion.LUCENE_VERSION,
-                IndexConstants.CONTENTS_FIELD, new SimpleAnalyzer(LuceneVersion.LUCENE_VERSION));
+        QueryParser parser = new QueryParser(LuceneVersion.LUCENE_VERSION, IndexConstants.CONTENTS_FIELD, new SimpleAnalyzer(LuceneVersion.LUCENE_VERSION));
         Query query = parser.parse(queryExpression);
 
         System.out.println("Query: " + queryExpression);

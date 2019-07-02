@@ -8,21 +8,19 @@ import java.util.Set;
 
 /**
  * Filter files by a list of extensions
- * 
- * @author dimitri
  *
+ * @author dimitri
  */
 public class ExtensionFileFilter implements FileFilter {
 
     private boolean acceptDirectory = true;
     private boolean acceptExtensionless = false;
-    private Set<String> extensions = new HashSet<String>();
+    private Set<String> extensions = new HashSet<>();
 
     public ExtensionFileFilter(String... ext) {
         extensions.addAll(Arrays.asList(ext));
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
     public ExtensionFileFilter(Set extensions) {
         this.extensions = extensions;
     }
@@ -53,8 +51,7 @@ public class ExtensionFileFilter implements FileFilter {
         if (index < 0) {
             return null;
         }
-        String ext = name.substring(index + 1);
-        return ext;
+        return name.substring(index + 1);
     }
 
     public boolean isAcceptDirectory() {
@@ -72,7 +69,7 @@ public class ExtensionFileFilter implements FileFilter {
     public void setAcceptExtensionless(boolean acceptExtensionless) {
         this.acceptExtensionless = acceptExtensionless;
     }
-    
-    
+
+
 
 }

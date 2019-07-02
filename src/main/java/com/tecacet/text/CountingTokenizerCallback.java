@@ -5,19 +5,19 @@ import java.util.TreeMap;
 
 public class CountingTokenizerCallback implements TokenizerCallback {
 
-	 private final Map<String, Integer> wordCount = new TreeMap<String, Integer>();
-	
-	@Override
-	public void addToken(String token) {
-		Integer count = wordCount.get(token);
+    private final Map<String, Integer> wordCount = new TreeMap<>();
+
+    @Override
+    public void addToken(String token) {
+        Integer count = wordCount.get(token);
         if (count == null) {
-            count = new Integer(0);
+            count = 0;
         }
         wordCount.put(token, ++count);
-	}
+    }
 
     public Map<String, Integer> getWordCount() {
         return wordCount;
     }
-	
+
 }
