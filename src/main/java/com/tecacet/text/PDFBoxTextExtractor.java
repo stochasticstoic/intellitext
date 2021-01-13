@@ -1,9 +1,10 @@
 package com.tecacet.text;
 
 import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +30,7 @@ public class PDFBoxTextExtractor implements TextExtractor {
     }
 
     private static COSDocument parseDocument(InputStream is) throws IOException {
-        PDFParser parser = new PDFParser(is);
+        PDFParser parser = new PDFParser(new RandomAccessBufferedFileInputStream(is));
         parser.parse();
         return parser.getDocument();
     }

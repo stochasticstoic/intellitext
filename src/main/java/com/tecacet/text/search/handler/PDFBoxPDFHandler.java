@@ -8,10 +8,11 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
-import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +30,7 @@ public class PDFBoxPDFHandler implements DocumentHandler {
 
         COSDocument cosDoc = null;
         try {
-            cosDoc = parseDocument(new FileInputStream(file));
+            cosDoc = parseDocument(new RandomAccessBufferedFileInputStream(file));
         } catch (IOException e) {
             closeCOSDocument(cosDoc);
             throw new DocumentHandlerException("Cannot parse PDF document", e);
@@ -85,7 +86,7 @@ public class PDFBoxPDFHandler implements DocumentHandler {
         }
     }
 
-    private static COSDocument parseDocument(InputStream is) throws IOException {
+    private static COSDocument parseDocument(RandomAccessBufferedFileInputStream is) throws IOException {
         PDFParser parser = new PDFParser(is);
         parser.parse();
         return parser.getDocument();
