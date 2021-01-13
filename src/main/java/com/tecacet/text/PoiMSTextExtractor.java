@@ -1,7 +1,8 @@
 package com.tecacet.text;
 
-import org.apache.poi.POITextExtractor;
-import org.apache.poi.extractor.ExtractorFactory;
+
+import org.apache.poi.extractor.POITextExtractor;
+import org.apache.poi.ooxml.extractor.ExtractorFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
