@@ -8,13 +8,13 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<lucene.version>4.10.4</lucene.version>
-		<guava.version>23.0</guava.version>
+		<guava.version>30.1-jre</guava.version>
 		<apache-poi.version>3.17</apache-poi.version>
 		<digester3.version>3.2</digester3.version>
 		<jtidy.version>r938</jtidy.version>
 		<nekohtml.version>1.9.6.2</nekohtml.version>
         <pdfbox.version>1.8.16</pdfbox.version>
-		<slf4j.version>1.7.25</slf4j.version>
+		<slf4j.version>1.7.30</slf4j.version>
 		<logback.version>1.2.3</logback.version>
 		<junit.version>4.13.1</junit.version>
     </properties>
